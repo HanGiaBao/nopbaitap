@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <title>Fitness & Bodybuilding | Hàn Gia Bảo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#0b0b0b;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .bg-gradient{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:
+      radial-gradient(circle at top left,#0f3b3b 0%,#050505 40%),
+      radial-gradient(circle at bottom right,#001f1f 0%,#000 45%);
+      z-index:-1;
+    }
+
+    .navbar{
+      background:rgba(0,0,0,0.88);
+      backdrop-filter:blur(12px);
+      border:none;
+      padding:12px 0;
+      transition:0.4s;
+    }
+
+    .navbar-brand{
+      color:#00ffcc !important;
+      font-size:28px;
+      font-weight:800;
+      letter-spacing:2px;
+    }
+
+    .navbar-nav li a{
+      color:white !important;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    .navbar-nav li a:hover{
+      color:#00ffcc !important;
+    }
+
+    .hero{
+      min-height:100vh;
+      background:
+      linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.9)),
+      url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600&auto=format&fit=crop')
+      center/cover no-repeat;
+
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:0 20px;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:90px;
+      font-weight:800;
+      line-height:1;
+      margin:20px 0;
+      color:#00ffcc;
+      text-shadow:0 0 35px rgba(0,255,204,0.4);
+    }
+
+    .hero p{
+      font-size:22px;
+      opacity:0.85;
+      line-height:1.8;
+    }
+
+    .btn-custom{
+      display:inline-block;
+      margin-top:35px;
+      padding:15px 40px;
+      border:2px solid #00ffcc;
+      border-radius:50px;
+      color:#00ffcc;
+      text-decoration:none !important;
+      font-weight:700;
+      transition:0.4s;
+      margin-right:10px;
+    }
+
+    .btn-custom:hover{
+      background:#00ffcc;
+      color:black !important;
+      box-shadow:0 0 30px #00ffcc;
+      transform:translateY(-4px);
+    }
+
+    .section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      color:#00ffcc;
+      font-size:42px;
+      font-weight:800;
+    }
+
+    .section-title p{opacity:0.7;margin-top:15px;
+      font-size:17px;
+    }
+
+    .card-box{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      backdrop-filter:blur(15px);
+      padding:35px;
+      border-radius:25px;
+      transition:0.4s;
+      margin-bottom:30px;
+      height:100%;
+    }
+
+    .card-box:hover{
+      transform:translateY(-8px);
+      border-color:#00ffcc;
+      background:rgba(0,255,204,0.05);
+    }
+
+    .card-img-top{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      border-radius:18px;
+      margin-bottom:20px;
+    }
+
+    .profile-img{
+      border-radius:30px;
+      border:3px solid #00ffcc;
+      box-shadow:0 10px 40px rgba(0,0,0,0.5);
+    }
+
+    .card-box h3,
+    .card-box h4{
+      color:#00ffcc;
+      font-weight:700;
+      margin-bottom:15px;
+    }
+
+    .card-box p{
+      line-height:1.9;
+      opacity:0.85;
+    }
+
+    .timeline{
+      position:relative;
+      margin-top:60px;
+    }
+
+    .timeline::before{
+      content:'';
+      position:absolute;
+      width:2px;
+      height:100%;
+      background:#00ffcc;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .timeline-item{
+      position:relative;
+      width:50%;
+      padding:20px 50px;
+      margin-bottom:50px;
+    }
+
+    .timeline-item.left{
+      left:0;
+      text-align:right;
+    }
+
+    .timeline-item.right{
+      left:50%;
+    }
+
+    .timeline-dot{
+      position:absolute;
+      width:18px;
+      height:18px;
+      background:#00ffcc;
+      border-radius:50%;
+      top:40px;
+      box-shadow:0 0 20px #00ffcc;
+    }
+
+    .left .timeline-dot{
+      right:-9px;
+    }
+
+    .right .timeline-dot{
+      left:-9px;
+    }
+
+    .gallery img{
+      width:100%;
+      border-radius:25px;
+      margin-bottom:30px;
+      transition:0.4s;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
+
+    .achievement-card{
+      background:linear-gradient(135deg,#00ffcc,#008080);
+      color:black;
+      padding:60px;
+      border-radius:30px;
+      text-align:center;
+      box-shadow:0 0 40px rgba(0,255,204,0.25);
+    }
+
+    .achievement-card h2{
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    footer{
+      background:black;
+      text-align:center;
+      padding:70px 20px;
+      border-top:1px solid #222;
+    }
+
+    footer h2{
+      color:#00ffcc;
+      font-weight:800;
+      margin-bottom:20px;
+    }
+
+    footer a{
+      color:#00ffcc;
+      margin:0 10px;
+      text-decoration:none !important;
+    }
+
+    footer a:hover{
+      color:white;
+    }
+
+    input,
+    textarea{
+      background:transparent !important;
+      color:white !important;
+      border:1px solid #333 !important;
+      border-radius:15px !important;
+      margin-bottom:15px;
+    }
+
+    input{
+      height:50px !important;
+    }
+
+    textarea{
+      padding:15px !important;
+    }
+
+    @media(max-width:768px){.hero h1{font-size:50px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .timeline::before{
+        left:20px;
+      }
+
+      .timeline-item{
+        width:100%;
+        left:0 !important;
+        padding-left:60px;
+        text-align:left !important;
+      }
+
+      .timeline-dot{
+        left:12px !important;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="bg-gradient"></div>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">BAO FITNESS</a>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#banthan">Bản Thân</a></li>
+        <li><a href="#kinhnghiem">Kinh Nghiệm</a></li>
+        <li><a href="#hanhtrinh">Hành Trình</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#thanhtich">Thành Tích</a></li>
+        <li><a href="#cauhoi">Liên Hệ</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+
+  <div class="hero-content" data-aos="zoom-in">
+
+    <p style="letter-spacing:4px; color:#00ffcc; font-weight:600;">
+      FITNESS • BODYBUILDING • LIFESTYLE
+    </p>
+
+    <h1>
+      BUILD YOUR<br>
+      BEST PHYSIQUE
+    </h1>
+
+    <p>
+      Chia sẻ hành trình tập luyện, siết thi đấu,
+      dinh dưỡng và kinh nghiệm bodybuilding thực chiến.
+    </p>
+
+    <a href="#banthan" class="btn-custom">
+      KHÁM PHÁ
+    </a>
+
+    <a href="#cauhoi" class="btn-custom">
+      LIÊN HỆ
+    </a>
+
+  </div>
+
+</section>
+
+<section class="section container" id="banthan">
+
+  <div class="row">
+
+    <div class="col-md-5" data-aos="fade-right">
+
+      <img src="images/avatar.jpg"
+      class="img-responsive profile-img"
+      alt="Hàn Gia Bảo">
+
+      <div class="card-box" style="margin-top:25px; text-align:center;">
+
+        <h3>HÀN GIA BẢO</h3>
+
+        <p>
+          Fitness Athlete • Bodybuilding Lifestyle
+        </p>
+
+        <hr style="border-color:#222;">
+
+        <p>
+          3+ năm tập luyện thực chiến, từng trải qua
+          quá trình bulk, cutting và chuẩn bị sân khấu thi đấu.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-7" data-aos="fade-left">
+
+      <div class="row">
+
+        <div class="col-md-4">
+
+          <div class="card-box">
+
+            <img src="https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=400&auto=format&fit=crop"
+            class="card-img-top">
+
+            <h4>MỤC TIÊU</h4>
+
+            <p>
+              Xây dựng cộng đồng fitness chia sẻ kiến thức tập luyện,dinh dưỡng và kinh nghiệm thực tế.</p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="card-box">
+
+            <img src="https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=400&auto=format&fit=crop"
+            class="card-img-top">
+
+            <h4>ĐỊNH HƯỚNG</h4>
+
+            <p>
+              Theo đuổi bodybuilding hiện đại,
+              phát triển hình thể thẩm mỹ và thực chiến.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+          <div class="card-box">
+
+            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=400&auto=format&fit=crop"
+            class="card-img-top">
+
+            <h4>LIFESTYLE</h4>
+
+            <p>
+              Xây dựng phong cách sống khỏe mạnh,
+              kỷ luật và phát triển bản thân toàn diện.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section container" id="kinhnghiem">
+
+  <div class="section-title" data-aos="fade-up">
+    <h2>KINH NGHIỆM CÁ NHÂN</h2>
+    <p>Hành trình tập luyện nghiêm túc và phát triển hình thể.</p>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-4" data-aos="fade-up">
+
+      <div class="card-box text-center">
+
+        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=400&auto=format&fit=crop"
+        class="card-img-top">
+
+        <h4>TẬP LUYỆN</h4>
+
+        <p>
+          Nhiều năm phát triển sức mạnh,
+          cải thiện vóc dáng và tối ưu hiệu suất tập luyện.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+
+      <div class="card-box text-center">
+
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=400&auto=format&fit=crop"
+        class="card-img-top">
+
+        <h4>DINH DƯỠNG</h4>
+
+        <p>
+          Trải qua nhiều giai đoạn bulk,
+          cut và siết thi đấu với chế độ macro nghiêm ngặt.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+
+      <div class="card-box text-center">
+
+        <img src="https://bodybuilding-wizard.com/wp-content/uploads/2024/11/chris-bumstead-classic-physique-mr-olympia-champion-1.jpg"
+        class="card-img-top">
+
+        <h4>THI ĐẤU</h4>
+
+        <p>
+          Từng trải nghiệm quá trình posing,
+          peak week và chuẩn bị sân khấu bodybuilding.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section container" id="hanhtrinh">
+
+  <div class="section-title">
+    <h2>HÀNH TRÌNH THỂ HÌNH</h2>
+    <p>Từng giai đoạn phát triển thể chất và hoàn thiện hình thể.</p>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item left" data-aos="fade-right">
+
+      <div class="timeline-dot"></div><div class="card-box"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=400&auto=format&fit=crop"
+        class="card-img-top">
+
+        <h3>GIAI ĐOẠN BULK</h3>
+
+        <p>
+          Tăng cơ, cải thiện sức mạnh và xây dựng nền tảng thể chất.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="timeline-item right" data-aos="fade-left">
+
+      <div class="timeline-dot"></div>
+
+      <div class="card-box">
+
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=400&auto=format&fit=crop"
+        class="card-img-top">
+
+        <h3>GIAI ĐOẠN CUTTING</h3>
+
+        <p>
+          Siết mỡ, cardio và giữ khối cơ để đạt condition tốt nhất.
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="timeline-item left" data-aos="fade-right">
+
+      <div class="timeline-dot"></div>
+
+      <div class="card-box">
+
+        <img src="images/thidau.jpg"
+        class="card-img-top">
+
+        <h3>THI ĐẤU</h3>
+
+        <p>
+          Hoàn thiện posing, tinh chỉnh physique
+          và bước lên sân khấu bodybuilding.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section container" id="gallery">
+  <section class="section container" id="gallery"></section>
+
+  <div class="section-title">
+    <h2>PHYSIQUE GALLERY</h2>
+    <p>Hành trình thay đổi hình thể qua từng giai đoạn.</p>
+  </div>
+
+  <div class="row gallery">
+
+    <!-- BULKING -->
+    <div class="col-md-4" data-aos="zoom-in">
+
+      <div class="card-box text-center">
+
+        <img
+        src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?q=80&w=1200&auto=format&fit=crop"
+        class="img-responsive"
+        style="border-radius:20px; height:350px; width:100%; object-fit:cover;">
+
+        <h3 style="margin-top:25px;">BULKING</h3>
+
+        <p>
+          Tăng cơ, tăng sức mạnh
+          và xây dựng nền tảng physique dày hơn.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- CUTTING -->
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+
+      <div class="card-box text-center">
+
+        <img
+        src="https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1200&auto=format&fit=crop"
+        class="img-responsive"
+        style="border-radius:20px; height:350px; width:100%; object-fit:cover;">
+
+        <h3 style="margin-top:25px;">CUTTING</h3>
+
+        <p>
+          Giảm mỡ, giữ cơ
+          và cải thiện độ nét toàn bộ cơ thể.
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- COMPETITION -->
+<div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+
+  <div class="card-box text-center">
+
+    <img src="https://generationiron.com/wp-content/uploads/2025/10/2025-Mens-Physique-Olympia-MAIN-1024x576.jpg"
+    class="img-responsive"style="border-radius:20px; height:350px; width:100%; object-fit:cover;"><h3 style="margin-top:25px;">THI ĐẤU</h3>
+
+    <p>
+      Hoàn thiện condition,
+      posing và bước lên sân khấu bodybuilding.
+    </p>
+
+  </div>
+
+</div>
+
+  </div>
+
+</section>
+
+    <section class="section container" id="thanhtich">
+
+  <div class="section-title" data-aos="fade-up">
+
+    <h2>THÀNH TÍCH & KINH NGHIỆM</h2>
+
+    <p>
+      Những cột mốc và thành quả trong hành trình bodybuilding.
+    </p>
+
+  </div>
+
+  <div class="row gallery">
+
+    <!-- THÀNH TÍCH 1 -->
+    <div class="col-md-4" data-aos="zoom-in">
+
+      <div class="card-box text-center">
+
+        <img
+        src="images/thanhtich1.jpg"
+        class="img-responsive"
+        style="border-radius:20px; height:350px; width:100%; object-fit:cover;">
+
+        <h3 style="margin-top:25px;">
+          THÀNH TÍCH
+        </h3>
+
+        <p>
+          Bằng khen TVU thẩm mỹ mở rộng 2026
+        </p>
+
+      </div>
+
+    </div>
+
+  
+    <!-- THÀNH TÍCH 3 -->
+    <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+
+      <div class="card-box text-center">
+
+        <img
+        src="images/thanhtich3.jpg"
+        class="img-responsive"
+        style="border-radius:20px; height:350px; width:100%; object-fit:cover;">
+
+        <h3 style="margin-top:25px;">
+          THÀNH TÍCH 
+        </h3>
+
+        <p>
+          Khuyến khích Sport Nam trên m75
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+  <div class="achievement-card" style="margin-top:70px;" data-aos="fade-up">
+
+    <h2>BODYBUILDING JOURNEY</h2>
+
+    <p style="font-size:20px; line-height:1.8; margin-bottom:40px;">
+
+      Hơn 3 năm theo đuổi fitness và bodybuilding,
+      trải qua nhiều giai đoạn bulk, cutting và siết thi đấu.
+
+    </p>
+
+    <div class="row">
+
+      <div class="col-xs-6">
+
+        <h1>3+</h1>
+        <p>Năm Kinh Nghiệm</p>
+
+      </div>
+
+      <div class="col-xs-6">
+
+        <h1>100%</h1>
+        <p>Kỷ Luật & Đam Mê</p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="section container" id="cauhoi">
+
+  <div class="row">
+
+    <div class="col-md-8 col-md-offset-2" data-aos="zoom-in">
+
+      <div class="card-box" style="border:2px solid #00ffcc;">
+
+        <div class="section-title" style="margin-bottom:40px;">
+
+          <h2>TƯ VẤN TẬP LUYỆN</h2>
+
+          <p>
+            Hỗ trợ lộ trình tập luyện, dinh dưỡng
+            và định hướng phát triển thể hình.
+          </p>
+
+        </div>
+
+        <p class="text-center" style="margin-bottom:30px;">
+
+          Email: bhan4357@gmail.com
+          <br>
+          Zalo: 0389744604
+
+        </p>
+
+        <form>
+
+          <input type="text"
+          class="form-control"
+          placeholder="Tên của bạn">
+
+          <textarea rows="5"
+          class="form-control"
+          placeholder="Bạn cần hỗ trợ gì?"></textarea>
+
+          <button type="submit"
+          class="btn-custom"
+          style="width:100%;">
+
+            GỬI YÊU CẦU
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+</section>
+<footer>
+
+  <h2>BAO FITNESS</h2>
+
+  <p>
+    Bodybuilding • Fitness • Coaching
+  </p>
+
+  <div style="margin-top:25px;">
+
+    <a href="#">Facebook</a>
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+
+  </div>
+
+  <p style="margin-top:30px; color:#666;">
+    © 2026 Hàn Gia Bảo
+  </p>
+
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<script>
+
+  AOS.init({
+    duration:1000,
+    once:true
+  });
+
+  $(window).scroll(function(){
+
+    if($(this).scrollTop() > 50){
+
+      $('.navbar').css('background','rgba(0,0,0,0.96)');
+
+    }else{
+
+      $('.navbar').css('background','rgba(0,0,0,0.88)');
+
+    }
+
+  });
+
+</script>
+
+</body>
+</html>
