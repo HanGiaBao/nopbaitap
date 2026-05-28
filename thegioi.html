@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thegioididong Clone</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    padding-top:135px;
+}
+
+/* ================= TOP SALE ================= */
+
+.top-sale{
+    width:100%;
+    height:50px;
+    background:linear-gradient(90deg,#ff5f00,#ff0062);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:20px;
+    font-weight:800;
+}
+
+/* ================= HEADER ================= */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+}
+
+.header-top{
+    background:#ffd500;
+    padding:14px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.container{
+    width:1400px;
+    margin:auto;
+}
+
+.header-row{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.logo{
+    font-size:38px;
+    font-weight:900;
+    color:#111;
+    white-space:nowrap;
+}
+
+.search{
+    flex:1;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    height:48px;
+    border:none;
+    border-radius:999px;
+    padding:0 20px;
+    font-size:15px;
+    outline:none;
+}
+
+.header-actions{
+    display:flex;
+    gap:20px;
+}
+
+.header-btn{
+    font-weight:600;
+    cursor:pointer;
+    white-space:nowrap;
+}
+
+/* ================= MENU ================= */
+
+.menu{
+    width:100%;
+    background:#ffe45b;
+    border-top:1px solid rgba(0,0,0,0.06);
+}
+
+.menu-row{
+    display:flex;
+    gap:30px;
+    align-items:center;
+    overflow:auto;
+    padding:12px 0;
+}
+
+.menu-item{
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.2s;
+    white-space:nowrap;
+}
+
+.menu-item:hover{
+    color:#ff3c00;
+}
+
+/* ================= COPYRIGHT ================= */
+
+.copyright{
+    margin-top:40px;
+    background:#e5e7eb;
+    color:#555;
+    padding:25px;
+    font-size:13px;
+    line-height:1.8;
+    border-top:1px solid #d1d5db;
+}
+
+.copyright span{
+    color:#0066cc;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.copyright span:hover{
+    text-decoration:underline;
+}
+/* ================= MAIN ================= */
+
+main{
+    width:1400px;
+    margin:25px auto;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    width:100%;
+    height:340px;
+    border-radius:20px;
+    overflow:hidden;
+    background:linear-gradient(135deg,#6a00ff,#ff0080);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:50px;
+    color:white;
+}
+
+.hero h1{
+    font-size:58px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:22px;
+}
+
+.hero-right{
+    width:320px;
+    height:220px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:120px;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    margin-top:35px;
+}
+
+.section-title{
+    font-size:34px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+/* ================= TABS ================= */
+
+.tabs{
+    display:flex;
+    gap:12px;
+    overflow:auto;margin-bottom:20px;
+}
+
+.tab{
+    background:white;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:700;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:0.2s;
+    white-space:nowrap;
+}
+
+.tab:hover{
+    border-color:#ffd500;
+}
+
+.tab.active{
+    background:#fff4c6;
+    border-color:#ffd500;
+}
+
+/* ================= PRODUCT GRID ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:18px;
+}
+
+.card{
+    background:white;
+    border-radius:18px;
+    padding:18px;
+    position:relative;
+    overflow:hidden;
+    transition:0.25s;
+    cursor:pointer;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.badge{
+    position:absolute;
+    top:14px;
+    left:14px;
+    background:#ff3b30;
+    color:white;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:12px;
+    font-weight:700;
+}
+
+.product-img{
+    width:100%;
+    height:220px;
+    border-radius:14px;
+    background:linear-gradient(135deg,#ececec,#d7d7d7);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:90px;
+    margin-bottom:16px;
+}
+
+.product-name{
+    font-size:16px;
+    font-weight:700;
+    line-height:1.5;
+    min-height:48px;
+}
+
+.price{
+    color:#e60023;
+    font-size:28px;
+    font-weight:800;
+    margin-top:12px;
+}
+
+.old-price{
+    color:#888;
+    text-decoration:line-through;
+    margin-top:5px;
+}
+
+.discount{
+    color:#e60023;
+    font-weight:700;
+    margin-top:6px;
+}
+
+/* ================= BANNERS ================= */
+
+.banner-row{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:18px;
+    margin-top:35px;
+}
+
+.banner{
+    height:200px;
+    border-radius:20px;
+    overflow:hidden;
+    color:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:35px;
+}
+
+.banner h2{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.banner p{
+    font-size:20px;
+}
+
+.banner-left{
+    background:linear-gradient(135deg,#ff8c00,#ffd500);
+}
+
+.banner-right{
+    background:linear-gradient(135deg,#111,#555);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    margin-top:60px;
+    background:white;
+    padding:50px 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.footer-title{
+    font-size:20px;font-weight:800;
+    margin-bottom:18px;
+}
+
+.footer-link{
+    margin-bottom:12px;
+    color:#555;
+    cursor:pointer;
+}
+
+.footer-link:hover{
+    color:#ff5f00;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1450px){
+
+    .container,
+    main{
+        width:95%;
+    }
+
+    .products{
+        grid-template-columns:repeat(4,1fr);
+    }
+}
+
+@media(max-width:1100px){
+
+    .products{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .banner-row{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        flex-direction:column;
+        height:auto;
+        gap:30px;
+        text-align:center;
+    }
+}
+
+@media(max-width:780px){
+
+    body{
+        padding-top:160px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .header-actions{
+        display:none;
+    }
+
+    .logo{
+        font-size:28px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-right{
+        width:100%;
+    }
+
+    .float-ad{
+        display:none;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:500px){
+
+    .products{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:30px;
+    }
+
+    .hero h1{
+        font-size:30px;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+}
+
+/* ================= SEARCH TAGS ================= */
+
+.search-tags{
+    width:100%;
+    background:white;
+    padding:25px;
+    border-radius:18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.tag{
+    padding:10px 16px;
+    background:#f3f4f6;
+    border-radius:999px;
+    font-size:14px;
+    cursor:pointer;
+    transition:0.2s;
+    border:1px solid transparent;
+}
+
+.tag:hover{
+    background:#fff2bf;
+    border-color:#ffd500;
+    transform:translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="top-sale">
+        🔥 HOT SALE CUỐI TUẦN - GIẢM ĐẾN 50%
+    </div>
+
+    <div class="header-top">
+
+        <div class="container">
+
+            <div class="header-row">
+
+                <div class="logo">
+                    thegioididong
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="Bạn tìm gì...">
+                </div>
+
+                <div class="header-actions">
+                    <div class="header-btn">Đăng nhập</div>
+                    <div class="header-btn">Giỏ hàng</div>
+                    <div class="header-btn">Tra vinh</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="menu">
+
+        <div class="container">
+
+            <div class="menu-row">
+
+                <div class="menu-item">📱 Điện thoại</div>
+                <div class="menu-item">💻 Laptop</div>
+                <div class="menu-item">🎧 Phụ kiện</div>
+                <div class="menu-item">⌚ Smartwatch</div>
+                <div class="menu-item">🖥 PC</div>
+                <div class="menu-item">🎮 Gaming</div>
+                <div class="menu-item">📺 Màn hình</div><div class="menu-item">📷 Camera</div>
+                <div class="menu-item">🖨 Máy in</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- ================= MAIN ================= -->
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div>
+            <h1>ĐẠI TIỆC APPLE</h1>
+            <p>Giảm sốc đến 9 triệu cho iPhone & MacBook</p>
+        </div>
+
+        <div class="hero-right">
+            📱
+        </div>
+
+    </section>
+
+    \
+
+    <!-- BANNERS -->
+
+    <div class="banner-row">
+
+        <div class="banner banner-left">
+
+            <div>
+
+                <h2>Laptop AI</h2>
+
+                <p>Giảm đến 10 triệu</p>
+
+            </div>
+
+            <div style="font-size:90px">
+
+                💻</div>
+
+        </div>
+
+        <div class="banner banner-right">
+
+            <div>
+
+                <h2>iPhone 17</h2>
+
+                <p>Trả góp 0%</p>
+
+            </div>
+
+            <div style="font-size:90px">
+
+                🍎
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- GỢI Ý -->
+
+    <section class="section">
+
+        <div class="section-title">
+
+            Gợi ý cho bạn
+
+        </div>
+
+        <div class="products">
+
+            <div class="card">
+
+                <div class="product-img">📱</div>
+
+                <div class="product-name">xào mì c71</div>
+
+                <div class="price">3.590đ</div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="product-img">⌚</div>
+
+                <div class="product-name">Đồng hồ thông's minh</div>
+
+                <div class="price">2.290đ</div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="product-img">💻</div>
+
+                <div class="product-name">ây sus v14</div>
+
+                <div class="price">20.390đ</div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="product-img">🤑</div>
+
+                <div class="product-name">Samsung Galaxy</div>
+
+                <div class="price">3.090đ</div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="product-img">😎</div>
+
+                <div class="product-name">16 rồ mắc</div>
+
+                <div class="price">32.990đ</div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+
+                <div class="footer-title">
+
+                    Tổng đài hỗ trợ
+
+                </div>
+
+                <div class="footer-link">
+
+                    Gọi mua: 1900 232 460
+
+                </div>
+
+                <div class="footer-link">
+
+                    Khiếu nại: 1800 1062
+
+                </div>
+
+                <div class="footer-link">
+
+                    Bảo hành: 1900 232 464
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="footer-title">
+
+                    Về công ty
+
+                </div>
+
+                <div class="footer-link">
+
+                    Giới thiệu công ty
+
+                </div>
+
+                <div class="footer-link">
+
+                    Tuyển dụng
+
+                </div>
+
+                <div class="footer-link">
+
+                    Liên hệ
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="footer-title">
+
+                    Chính sách
+
+                </div>
+
+                <div class="footer-link">
+
+                    Chính sách bảo hành
+
+                </div>
+
+                <div class="footer-link">Chính sách trả góp
+
+                </div>
+
+                <div class="footer-link">
+
+                    Chính sách giao hàng
+
+                </div>
+
+            </div>
+
+            <div>
+
+                <div class="footer-title">
+
+                    Kết nối
+
+                </div>
+
+                <div class="footer-link">
+
+                    Facebook
+
+                </div>
+
+                <div class="footer-link">
+
+                    Youtube
+
+                </div>
+
+                <div class="footer-link">
+
+                    TikTok
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<section class="section">
+    <div class="search-title">
+        Mn cung tim kiem
+    </div>
+
+    <div class="search-tags">
+        <div class="tag">laptop</div>
+        <div class="tag">pc</div>
+        <div class="tag">phone</div>
+        <div class="tag">macbook</div>
+        <div class="tag">iphone</div>
+        <div class="tag">samsung</div>
+        <div class="tag">cuc gach</div>
+        <div class="tag">iphone cu</div>
+        <div class="tag">dien thoai cu</div>
+        <div class="tag">may loc nuoc</div>
+        <div class="tag">chuot may tinh</div>
+        <div class="tag">lot chuot</div>
+    </div>
+</section>
+
+<div class="copyright">
+    Công Ty Cổ Phần Đầu Tư Điện Máy Xanh.<br><br>
+
+    Địa chỉ: Binh phu, Cang Long, Tra Vinh. 
+    Địa chỉ liên hệ và gửi chứng từ: Tra vinh. 
+    Điện thoại: 028 38125960. 
+    Email: bhan4357@gmail.com. 
+    Chịu trách nhiệm nội dung: Han Gia Bao. 
+    Đại diện ủy quyền giải quyết các vấn đề liên quan bảo vệ quyền lợi người tiêu dùng: Huỳnh Văn Tốt. 
+    Email: bhan4357@gmail.com. 
+    <span>Xem chính sách sử dụng</span>
+</div>
+
+</footer>
+
+</body>
+
+</html>
