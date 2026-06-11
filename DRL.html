@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Điểm rèn luyện</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    background:#f5f5f5;
+}
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+ .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            background-color: #0f172a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-family: sans-serif;
+            font-size: 14px;
+        }
+/* Sidebar */
+.sidebar{
+    width:250px;
+    background:#111827;
+    color:white;
+    padding:20px;
+}
+
+.sidebar h2{
+    margin-bottom:20px;
+}
+
+.sidebar ul{
+    list-style:none;
+}
+
+.sidebar li{
+    padding:12px;
+    margin-bottom:10px;
+    border-radius:5px;
+}
+
+.active{
+    background:#2563eb;
+}
+
+/* Content */
+.content{
+    flex:1;
+    padding:20px;
+}
+
+/* Form */
+.search-box{
+    display:flex;
+    gap:10px;
+    margin:20px 0;
+}
+
+.search-box select,
+.search-box button{
+    padding:10px;
+}
+
+/* Main section */
+.main-section{
+    display:flex;
+    gap:20px;
+}
+
+/* Table */
+.table-box{
+    flex:3;
+    background:white;
+    padding:15px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th,td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:center;
+}
+
+/* Chart */
+.chart-box{
+    flex:1;
+    background:white;
+    padding:15px;
+    text-align:center;
+}
+
+.circle{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    background:conic-gradient(
+        blue 0 25%,
+        cyan 25% 60%,
+        gray 60% 85%,
+        red 85% 100%
+    );
+    margin:auto;
+}
+
+/* Footer */
+footer{
+    margin-top:20px;
+    background:#1d4ed8;
+    color:white;
+    padding:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>ĐIỂM RÈN LUYỆN</h2>
+
+        <ul>
+            <li>Hướng dẫn sử dụng</li>
+            <li>Danh sách kết quả</li>
+            <li class="active">Thống kê lớp</li>
+        </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="content">
+
+        <h1>Thống kê kết quả đánh giá</h1>
+
+          <a href="index.html" class="back-btn">← Quay lại danh sách</a>
+
+        <!-- Form -->
+        <div class="search-box">
+
+            <select>
+                <option>HK1-2025-2026</option>
+            </select>
+
+            <select>
+                <option>DA25TTD</option>
+            </select>
+
+            <select>
+                <option>Tất cả</option>
+            </select>
+
+            <button>Tìm kiếm</button>
+
+        </div>
+
+        <!-- Nội dung -->
+        <div class="main-section">
+
+            <!-- Table -->
+            <div class="table-box">
+
+                <table>
+                    <tr>
+                        <th>STT</th>
+                        <th>MSSV</th>
+                        <th>Họ và tên</th>
+                        <th>Số điểm</th>
+                        <th>Xếp loại</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>110125233</td>
+                        <td>Nguyễn Văn A</td>
+                        <td>90</td>
+                        <td>Xuất sắc</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>110125234</td>
+                        <td>Trần Văn B</td>
+                        <td>80</td>
+                        <td>Tốt</td>
+                    </tr>
+
+                </table>
+
+            </div>
+
+            <!-- Chart -->
+            <div class="chart-box">
+
+                <div class="circle"></div>
+
+                <p>Xuất sắc: 4.5%</p>
+                <p>Tốt: 22.7%</p>
+                <p>Khá: 38.6%</p>
+                <p>Trung bình: 22.7%</p>
+
+            </div>
+
+        </div>
+
+        <footer>
+            Copyright © 2023 TVU
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
